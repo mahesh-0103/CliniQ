@@ -76,14 +76,3 @@ CliniQ AI follows **Morweb Medical Website Design Guidelines** to ensure usabili
 
 ---
 
-## 📂 Project Structure
-
-```text
-CliniQ/
-├── backend.py             # FastAPI backend & image preprocessing
-├── medical_knowledge.py   # Local clinical knowledge base (chatbot)
-├── generate_report.py     # Radiology PDF report generation logic
-├── app.tsx                # React entry point & multi-page dashboard UI
-├── assets/                # Branding assets (lungs logo, favicon)
-├── Dockerfile             # Backend container configuration
-└── requirements.txt       # Python dependencies
