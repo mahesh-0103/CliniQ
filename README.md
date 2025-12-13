@@ -18,7 +18,7 @@
 
 ## 🌟 Overview
 
-**CliniQ AI** is a modern medical diagnostic platform combining React frontend with FastAPI backend for instant pneumonia detection. Built following **Morweb Medical Design Guidelines** with focus on accessibility, clinical usability, and privacy-first architecture.
+**CliniQ** is a modern medical diagnostic platform combining React frontend with FastAPI backend for instant pneumonia detection. Built following **Morweb Medical Design Guidelines** with focus on accessibility, clinical usability, and privacy-first architecture.
 
 ---
 
