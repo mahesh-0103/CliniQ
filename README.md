@@ -43,7 +43,7 @@
 │                                             │
 │  ┌──────────────┐      ┌──────────────┐     │
 │  │   Frontend   │◄────►│   Backend    │     │
-│  │   TypeScript │ API │  FastAPI     │     │
+│  │   TypeScript │ API │  FastAPI      │     │
 │  │  + Tailwind  │      │  + Keras     │     │
 │  └──────────────┘      └──────────────┘     │
 │         │                      │            │
