@@ -75,4 +75,36 @@ CliniQ AI follows **Morweb Medical Website Design Guidelines** to ensure usabili
 - Client-side PDF generation using `@react-pdf/renderer`
 
 ---
+## ⚙️ Installation & Setup
+
+### 🌐 Live API Access (Hugging Face)
+
+Since the backend is deployed on **Hugging Face Spaces**, the core API endpoints can be accessed directly for integration or testing.
+
+- **Base URL (Example):**  
+  `https://[your-space-name].hf.space`
+
+- **Prediction Endpoint:**  
+  `POST /predict`
+
+- **Interactive API Docs (Swagger UI):**  
+  Append `/docs` to the Base URL to access the live testing interface.
+
+---
+
+### 1️⃣ Backend Setup (Local Docker Testing)
+
+The backend is designed to run in a containerized environment.  
+Ensure the trained model file  
+`keras_model_from_trained_data.h5`  
+is present in the project root directory.
+
+```bash
+docker build -t cliniq-backend .
+docker run -p 7860:7860 cliniq-backend
+
+
+
+
+
 
