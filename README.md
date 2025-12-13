@@ -5,11 +5,11 @@
 ![CliniQ AI Banner](https://img.shields.io/badge/CliniQ-AI%20Diagnostics-1E40AF?style=for-the-badge&logo=lungs&logoColor=white)
 [![Python](https://img.shields.io/badge/Python-3.9+-3776AB?style=flat-square&logo=python&logoColor=white)](https://www.python.org/)
 [![FastAPI](https://img.shields.io/badge/FastAPI-0.104+-009688?style=flat-square&logo=fastapi&logoColor=white)](https://fastapi.tiangolo.com/)
-[![Streamlit](https://img.shields.io/badge/Streamlit-1.28+-FF4B4B?style=flat-square&logo=streamlit&logoColor=white)](https://streamlit.io/)
+[![React](https://img.shields.io/badge/React-18.0+-61DAFB?style=flat-square&logo=react&logoColor=black)](https://reactjs.org/)
 [![TensorFlow](https://img.shields.io/badge/TensorFlow-2.13+-FF6F00?style=flat-square&logo=tensorflow&logoColor=white)](https://www.tensorflow.org/)
 [![License](https://img.shields.io/badge/License-MIT-green.svg?style=flat-square)](LICENSE)
 
-**A professional-grade medical web application for high-accuracy pneumonia detection from Chest X-ray images**
+**Professional-grade medical platform for AI-powered pneumonia detection from chest X-rays**
 
 [Live Demo](https://huggingface.co/spaces/Kira0103/CliniQ) • [Report Bug](https://github.com/yourusername/cliniq-ai/issues) • [Request Feature](https://github.com/yourusername/cliniq-ai/issues)
 
@@ -17,327 +17,154 @@
 
 ---
 
-## 📋 Table of Contents
-
-- [Overview](#-overview)
-- [Key Features](#-key-features)
-- [Live Demo](#-live-demo)
-- [Architecture](#-architecture)
-- [Tech Stack](#️-tech-stack)
-- [Installation](#-installation)
-  - [Prerequisites](#prerequisites)
-  - [Backend Setup](#backend-setup)
-  - [Frontend Setup](#frontend-setup)
-  - [Using Hosted Backend](#using-hosted-backend-optional)
-- [Usage](#-usage)
-- [API Documentation](#-api-documentation)
-- [Design Philosophy](#-design--accessibility)
-- [Project Structure](#-project-structure)
-- [Diagnostic Logic](#-diagnostic-logic)
-- [Contributing](#-contributing)
-- [License](#-license)
-- [Disclaimer](#️-disclaimer)
-- [Acknowledgments](#-acknowledgments)
-
----
-
 ## 🌟 Overview
 
-**CliniQ AI** is a cutting-edge medical diagnostic platform that bridges the gap between AI-driven analysis and actionable medical documentation. Built on modern web standards and following **Morweb Medical Design Guidelines**, CliniQ empowers healthcare professionals with:
-
-- ⚡ **Instant pneumonia detection** from chest X-ray images
-- 📊 **Real-time confidence scoring** with severity classification
-- 📄 **Hospital-standard PDF reports** for clinical documentation
-- 💬 **Intelligent medical assistant** for patient education
-- 🔒 **Privacy-first architecture** with in-memory data handling
-
-> **Perfect for:** Medical institutions, telemedicine platforms, emergency diagnostics, and educational purposes.
+**CliniQ AI** is a modern medical diagnostic platform combining React frontend with FastAPI backend for instant pneumonia detection. Built following **Morweb Medical Design Guidelines** with focus on accessibility, clinical usability, and privacy-first architecture.
 
 ---
 
 ## 🚀 Key Features
 
-### 🤖 AI-Powered Diagnostics
-- **Deep Learning Engine**: Utilizes a lightweight Keras model (MobileNetV2 architecture) optimized for rapid classification
-- **Real-time Analysis**: Processes chest X-rays in seconds with confidence scoring
-- **High Accuracy**: Achieves 96.5% validation accuracy on 100,000+ medical images
-- **Severity Classification**: Automatic risk stratification (Normal, Mild, Moderate, Severe)
-
-### 📊 Multi-Page Clinical Dashboard
-- **Dashboard**: Real-time metrics, diagnostic trends, and activity monitoring
-- **X-ray Analysis**: Streamlined workflow for image upload and instant diagnosis
-- **Medical Reports**: Downloadable PDF reports following hospital standards
-- **Case History**: Comprehensive tracking of all diagnostic sessions
-- **AI Assistant**: Interactive chatbot for medical queries
-
-### 📄 Professional Radiology Reports
-- **Hospital-Grade Templates**: Follows standard radiology report formats
-- **Automated Documentation**: Generates detailed findings, impressions, and recommendations
-- **Severity-Based Guidelines**: Tailored clinical actions based on diagnosis confidence
-- **Digital Signatures**: Built-in authentication and verification sections
-- **Metadata Tracking**: Complete audit trail with timestamps and case IDs
-
-### 💬 Clinical AI Assistant
-- **Keyword-Matched Responses**: Intelligent natural language processing
-- **Comprehensive Knowledge Base**: Covers symptoms, treatments, prevention, and more
-- **Quick Questions**: Pre-programmed queries for common concerns
-- **Pediatric & Elderly Care**: Specialized guidance for vulnerable populations
-- **Emergency Protocols**: Clear indicators for when to seek immediate care
-
-### 🔒 Privacy-First Design
-- **In-Memory Processing**: No persistent storage of patient data
-- **Patient ID Masking**: Auto-generated anonymous identifiers (PID-0001, PID-0002...)
-- **Session-Based History**: Data cleared on browser close
-- **HIPAA-Conscious**: Designed with medical privacy regulations in mind
-- **No External Data Sharing**: All processing occurs locally or on secure backend
-
----
-
-## 🌐 Live Demo
-
-### Hosted Backend (Hugging Face Spaces)
-🔗 **Backend API**: [https://huggingface.co/spaces/Kira0103/CliniQ](https://huggingface.co/spaces/Kira0103/CliniQ)
-
-The CliniQ AI backend is deployed on **Hugging Face Spaces**, providing free, scalable API access:
-
-- 📡 **Base URL**: `https://kira0103-cliniq.hf.space`
-- 🔍 **Interactive Docs**: [https://kira0103-cliniq.hf.space/docs](https://kira0103-cliniq.hf.space/docs)
-- 📊 **Health Check**: `GET /health`
-
-> **Note**: The Hugging Face backend may have cold start times (~30-60 seconds) after periods of inactivity. For production deployments, consider self-hosting.
+- 🤖 **AI-Powered Diagnostics**: Keras/TensorFlow model achieving 96.5% accuracy
+- ⚡ **Real-time Analysis**: Instant chest X-ray processing with confidence scoring
+- 📊 **Clinical Dashboard**: Multi-page React interface with interactive visualizations
+- 📄 **PDF Reports**: Client-side generation using `@react-pdf/renderer`
+- 💬 **Medical Assistant**: Keyword-matched chatbot with comprehensive clinical data
+- 🔒 **Privacy-First**: In-memory state management, no persistent storage
+- 📱 **Responsive Design**: Tailwind CSS with mobile-optimized layouts
 
 ---
 
 ## 🏗️ Architecture
 
 ```
-┌─────────────────────────────────────────────────────────┐
-│                    CliniQ AI System                     │
-├─────────────────────────────────────────────────────────┤
-│                                                         │
-│  ┌──────────────┐         ┌──────────────┐            │
-│  │   Frontend   │ ◄─────► │   Backend    │            │
-│  │  (Streamlit) │  HTTPS  │   (FastAPI)  │            │
-│  └──────────────┘         └──────────────┘            │
-│         │                         │                    │
-│         │                         │                    │
-│  ┌──────▼──────┐           ┌─────▼─────┐             │
-│  │ PDF Reports │           │ AI Model  │             │
-│  │  Generator  │           │ (Keras)   │             │
-│  └─────────────┘           └───────────┘             │
-│                                                         │
-└─────────────────────────────────────────────────────────┘
+┌─────────────────────────────────────────────┐
+│           CliniQ AI System                  │
+├─────────────────────────────────────────────┤
+│                                             │
+│  ┌──────────────┐      ┌──────────────┐     │
+│  │   Frontend   │◄────►│   Backend    │     │
+│  │   TypeScript │ API │  FastAPI     │     │
+│  │  + Tailwind  │      │  + Keras     │     │
+│  └──────────────┘      └──────────────┘     │
+│         │                      │            │
+│  ┌──────▼──────┐      ┌───────▼────┐        │
+│  │ PDF Reports │      │  AI Model  │        │
+│  │ @react-pdf  │      │ (HF Space) │        │
+│  └─────────────┘      └────────────┘        │
+└─────────────────────────────────────────────┘
 ```
 
-### Data Flow:
-1. **User uploads** chest X-ray image via Streamlit frontend
-2. **Image encoded** to Base64 and sent to FastAPI backend
-3. **AI model** processes image and returns prediction
-4. **Results displayed** with confidence scores and severity
-5. **PDF report** generated client-side for download
-6. **Case added** to in-memory session history
+### Data Flow
+1. User uploads X-ray → **Base64 encoding** (client-side)
+2. POST to `/predict` → **FastAPI validation** (Pydantic)
+3. Image preprocessing → **Keras inference** (224×224 normalization)
+4. Results returned → **In-memory state** (React)
+5. PDF generation → **Client-side rendering** (@react-pdf)
 
 ---
 
 ## 🛠️ Tech Stack
 
 ### Frontend
-| Technology | Purpose |
-|-----------|---------|
-| ![Streamlit](https://img.shields.io/badge/Streamlit-FF4B4B?style=flat&logo=streamlit&logoColor=white) | Primary web framework |
-| ![Python](https://img.shields.io/badge/Python-3776AB?style=flat&logo=python&logoColor=white) | Core programming language |
-| ![ReportLab](https://img.shields.io/badge/ReportLab-PDF-green?style=flat) | PDF report generation |
+- **React 18** + **TypeScript** - Component architecture
+- **Tailwind CSS** - Responsive grid system (grid-cols-12)
+- **Recharts** - Confidence gauges & severity charts
+- **@react-pdf/renderer** - Client-side PDF generation
+- **React Router** - Multi-page navigation
 
-### Backend
-| Technology | Purpose |
-|-----------|---------|
-| ![FastAPI](https://img.shields.io/badge/FastAPI-009688?style=flat&logo=fastapi&logoColor=white) | REST API framework |
-| ![Uvicorn](https://img.shields.io/badge/Uvicorn-Server-purple?style=flat) | ASGI server |
-| ![Pydantic](https://img.shields.io/badge/Pydantic-Validation-red?style=flat) | Data validation |
+### Backend (Hugging Face Spaces)
+- **FastAPI** - Async ASGI framework
+- **Keras/TensorFlow** - AI model inference
+- **Pydantic** - Data validation with field coercion
+- **Docker** - Containerized deployment (port 7860)
 
-### AI/ML
-| Technology | Purpose |
-|-----------|---------|
-| ![TensorFlow](https://img.shields.io/badge/TensorFlow-FF6F00?style=flat&logo=tensorflow&logoColor=white) | Deep learning framework |
-| ![Keras](https://img.shields.io/badge/Keras-D00000?style=flat&logo=keras&logoColor=white) | High-level neural network API |
-| ![NumPy](https://img.shields.io/badge/NumPy-013243?style=flat&logo=numpy&logoColor=white) | Numerical computing |
-| ![Pillow](https://img.shields.io/badge/Pillow-Image-blue?style=flat) | Image processing |
-
-### Deployment
-| Technology | Purpose |
-|-----------|---------|
-| ![Docker](https://img.shields.io/badge/Docker-2496ED?style=flat&logo=docker&logoColor=white) | Containerization |
-| ![Hugging Face](https://img.shields.io/badge/Hugging%20Face-FFD21E?style=flat&logo=huggingface&logoColor=black) | Backend hosting |
+### AI Model
+- **Architecture**: MobileNetV2 (fine-tuned)
+- **Input**: 224×224×3 RGB images
+- **Output**: [normal_prob, pneumonia_prob]
+- **Hosted**: [Hugging Face Space](https://huggingface.co/spaces/Kira0103/CliniQ)
 
 ---
 
 ## 📥 Installation
 
 ### Prerequisites
+- Node.js 18+ and npm/yarn
+- Python 3.9+ (for local backend testing)
+- Git
 
-Before you begin, ensure you have:
+### Quick Start (Using Hosted Backend)
 
-- **Python 3.9+** installed ([Download](https://www.python.org/downloads/))
-- **pip** package manager
-- **Git** for cloning the repository
-- **(Optional)** Docker for containerized deployment
-- **AI Model File**: `keras_model_from_trained_data.h5` (contact repository owner)
-
-### Backend Setup
-
-#### Option 1: Local Installation
-
-1. **Clone the repository**
+1. **Clone repository**
    ```bash
-   git clone https://github.com/yourusername/cliniq-ai.git
-   cd cliniq-ai
+   git clone https://github.com/mahesh0103/cliniq.git
+   cd cliniq
    ```
 
-2. **Install backend dependencies**
+2. **Install frontend dependencies**
+   ```bash
+   npm install
+   ```
+
+3. **Configure API endpoint**
+   ```typescript
+   // src/config.ts
+   export const API_URL = "https://kira0103-cliniq.hf.space";
+   ```
+
+4. **Start development server**
+   ```bash
+   npm run dev
+   ```
+
+5. **Access application**
+   ```
+   http://localhost:3000
+   ```
+
+### Local Backend Setup (Optional)
+
+1. **Install Python dependencies**
    ```bash
    cd backend
    pip install -r requirements.txt
    ```
 
-3. **Add your trained model**
+2. **Download AI model**
+   - Model hosted at: https://huggingface.co/spaces/Kira0103/CliniQ
+   - Place `keras_model_from_trained_data.h5` in `backend/` directory
+
+3. **Run FastAPI server**
    ```bash
-   # Place your model file in the backend directory
-   cp /path/to/keras_model_from_trained_data.h5 ./
+   uvicorn backend:app --host 0.0.0.0 --port 7860 --reload
    ```
 
-4. **Start the FastAPI server**
-   ```bash
-   uvicorn main:app --host 0.0.0.0 --port 7860 --reload
+4. **Update frontend config**
+   ```typescript
+   export const API_URL = "http://localhost:7860";
    ```
-
-5. **Verify backend is running**
-   ```bash
-   curl http://localhost:7860/health
-   # Expected: {"status": "healthy", "model_loaded": true}
-   ```
-
-#### Option 2: Docker Deployment
-
-1. **Build Docker image**
-   ```bash
-   docker build -t cliniq-backend .
-   ```
-
-2. **Run container**
-   ```bash
-   docker run -d -p 7860:7860 --name cliniq-backend cliniq-backend
-   ```
-
-3. **Check logs**
-   ```bash
-   docker logs -f cliniq-backend
-   ```
-
-### Frontend Setup
-
-1. **Navigate to frontend directory**
-   ```bash
-   cd ../frontend  # or cd frontend from root
-   ```
-
-2. **Install dependencies**
-   ```bash
-   pip install -r requirements.txt
-   ```
-
-3. **Configure backend URL**
-   
-   Edit `app.py` and set the backend URL:
-   ```python
-   # For local backend
-   BACKEND_URL = "http://localhost:7860"
-   
-   # For Hugging Face backend (see next section)
-   BACKEND_URL = "https://kira0103-cliniq.hf.space"
-   ```
-
-4. **Run Streamlit app**
-   ```bash
-   streamlit run app.py
-   ```
-
-5. **Access the application**
-   
-   Open your browser and navigate to: `http://localhost:8501`
-
-### Using Hosted Backend (Optional)
-
-If you want to use the **pre-deployed Hugging Face backend** instead of running locally:
-
-1. **Open `app.py`** in your frontend directory
-
-2. **Update the `BACKEND_URL`**:
-   ```python
-   # app.py - Line ~20
-   BACKEND_URL = "https://kira0103-cliniq.hf.space"
-   ```
-
-3. **Run the frontend only**:
-   ```bash
-   streamlit run app.py
-   ```
-
-**Benefits**:
-- ✅ No need to set up backend locally
-- ✅ No AI model file required
-- ✅ Always up-to-date with latest model
-- ⚠️ Requires internet connection
-- ⚠️ May have cold start delays (~30-60s)
 
 ---
 
 ## 🎯 Usage
 
-### Quick Start Guide
+### Basic Workflow
 
-1. **Launch the Application**
-   ```bash
-   streamlit run app.py
-   ```
-
-2. **Navigate to X-ray Analysis**
-   - Click "🔍 X-ray Analysis" in the sidebar
-
-3. **Enter Patient Information**
-   - Patient Name (required)
-   - Age (required)
-   - Gender
-   - Patient ID (auto-generated: PID-0005, PID-0006...)
+1. **Navigate to Diagnostic Page** (`/diagnostic`)
+2. **Enter patient information**:
+   - Name, Age (auto-validates as string), Gender
+   - Patient ID (auto-generated: PID-0001, PID-0002...)
    - Symptoms (optional)
+3. **Upload chest X-ray** (PNG/JPG/JPEG)
+4. **Click "Run Analysis"** → Results in 3-5 seconds
+5. **View confidence gauge** and severity classification
+6. **Download PDF report** from Reports page
 
-4. **Upload Chest X-ray**
-   - Supported formats: PNG, JPG, JPEG
-   - Recommended: Frontal view chest X-rays
-   - Image will be displayed for verification
-
-5. **Run Analysis**
-   - Click "🚀 Run AI Analysis"
-   - Wait for AI processing (3-10 seconds)
-   - View results with confidence score
-
-6. **Download Report**
-   - Navigate to "📄 Reports" page
-   - Click "⬇️ Download PDF Report"
-   - Share with medical professionals
-
-### Using the AI Assistant
-
-1. **Navigate to AI Assistant** page
-2. **Ask questions** like:
-   - "What are common pneumonia symptoms?"
-   - "How is pneumonia treated?"
-   - "When should I seek emergency care?"
-3. **Use Quick Questions** for instant answers
-
-### Viewing Case History
-
-- **Dashboard**: Overview of all cases with metrics
-- **Case History**: Detailed table with export to CSV
+### AI Assistant
+- Pre-loaded quick questions on symptoms, treatment, prevention
+- Keyword-matched responses for medical queries
+- Pediatric and elderly care guidelines
 
 ---
 
@@ -345,45 +172,26 @@ If you want to use the **pre-deployed Hugging Face backend** instead of running 
 
 ### Base URL
 ```
-Local:          http://localhost:7860
-Hugging Face:   https://kira0103-cliniq.hf.space
+Production: https://kira0103-cliniq.hf.space
+Local:      http://localhost:7860
 ```
 
 ### Endpoints
 
-#### 1. Health Check
-```http
-GET /health
+#### `POST /predict`
+**Request:**
+```json
+{
+  "image": "base64_encoded_string",
+  "patient_name": "John Doe",
+  "patient_age": "45",  // String or int (auto-coerced)
+  "patient_gender": "Male",
+  "patient_id": "PID-0001",
+  "symptoms": "Cough, fever"
+}
 ```
 
 **Response:**
-```json
-{
-  "status": "healthy",
-  "model_loaded": true,
-  "timestamp": "2025-12-13T10:30:00Z"
-}
-```
-
-#### 2. Predict Pneumonia
-```http
-POST /predict
-Content-Type: application/json
-```
-
-**Request Body:**
-```json
-{
-  "image": "base64_encoded_image_string",
-  "patient_name": "John Doe",
-  "patient_age": "45",
-  "patient_gender": "Male",
-  "patient_id": "PID-0001",
-  "symptoms": "Cough, fever, shortness of breath"
-}
-```
-
-**Response (Pneumonia Detected):**
 ```json
 {
   "is_pneumonia": true,
@@ -395,40 +203,119 @@ Content-Type: application/json
 }
 ```
 
-**Response (Normal):**
+#### `GET /health`
 ```json
 {
-  "is_pneumonia": false,
-  "label": "NORMAL CHEST X-RAY",
-  "confidence": 97.8,
-  "severity": "NORMAL",
-  "predictions": [0.978, 0.022],
-  "timestamp": "2025-12-13T10:35:00Z"
+  "status": "healthy",
+  "model_loaded": true
 }
 ```
 
-### Interactive API Docs
-
-Visit the Swagger UI for interactive testing:
-- **Local**: http://localhost:7860/docs
-- **Hosted**: https://kira0103-cliniq.hf.space/docs
+**Interactive Docs**: https://kira0103-cliniq.hf.space/docs
 
 ---
 
-## 🎨 Design & Accessibility
+## 🔧 Critical Technical Fixes
 
-CliniQ follows the **Morweb Medical Website Design Guidelines** to ensure patient-centered care:
+### 1. Tensor Input Mismatch (Fixed)
+**Problem**: Model expected single 4D tensor, received multiple tensors → `400 Bad Request`
 
-### Visual Hierarchy
-- **Primary Color**: `#1E40AF` (Deep Blue) - Trust and professionalism
-- **Success**: `#10B981` (Emerald Green) - Positive results
-- **Warning**: `#F59E0B` (Amber) - Attention needed
-- **Danger**: `#EF4444` (Red) - Critical findings
+**Solution**: 
+```python
+# backend.py - Explicit batch dimension
+img_array = np.expand_dims(img_array, axis=0).astype(np.float32)
+```
 
-### Typography
-- **Font Family**: Inter, system fonts
-- **Headings**: Bold, clear hierarchy (H1-H3)
-- **Body Text**: 11-14px, high contrast, readable line height
+### 2. Data Type Validation (Fixed)
+**Problem**: Frontend sent `patient_age` as int, backend expected string → `422 Unprocessable Entity`
 
-### Branding & Author
+**Solution**:
+```python
+# backend.py - Pydantic field validator
+@field_validator('patient_age', mode='before')
+def coerce_age(cls, v):
+    return str(v) if v is not None else ""
+```
 
+---
+
+## 🎨 Design Philosophy
+
+### Morweb Medical Guidelines
+- **Primary Color**: `#1E40AF` (Deep Blue) - Trust & professionalism
+- **Typography**: Inter font, high contrast (4.5:1 minimum)
+- **Iconography**: Opaque SVG lungs icon for clinical authority
+- **Layout**: Grid-cols-12 responsive system
+
+### Accessibility
+- ♿ WCAG 2.1 Level AA compliant
+- ⌨️ Keyboard navigation
+- 📖 Screen reader optimized
+- 🎨 High contrast mode support
+
+---
+
+## 📁 Project Structure
+
+```
+cliniq-ai/
+├── backend/
+│   ├── backend.py                      # FastAPI app
+│   ├── requirements.txt
+│   └── keras_model_from_trained_data.h5
+│
+├── src/
+│   ├── components/
+│   │   ├── Dashboard.tsx
+│   │   ├── Diagnostic.tsx
+│   │   ├── Reports.tsx
+│   │   └── Assistant.tsx
+│   ├── utils/
+│   │   ├── api.ts                      # API client
+│   │   └── pdfGenerator.ts             # @react-pdf logic
+│   ├── App.tsx                         # Main router
+│   └── config.ts                       # API URL config
+│
+├── package.json
+├── tailwind.config.js
+└── README.md
+```
+
+## 📜 License
+
+MIT License - see [LICENSE](LICENSE) file
+
+---
+
+## ⚠️ Medical Disclaimer
+
+**CliniQ AI is for educational and auxiliary diagnostic support only.**
+
+- ✅ Designed to assist healthcare professionals
+- 🏥 All findings must be verified by certified radiologists
+- 🚫 Not FDA approved - research tool only
+- ❌ Do NOT use for emergency diagnoses
+- 📋 Clinical correlation with patient history required
+
+**In emergencies, call your local emergency services (e.g., 911).**
+
+
+---
+
+## 🙏 Acknowledgments
+
+- **Hugging Face** - Model hosting and deployment
+- **Morweb** - Medical design guidelines
+- **NIH** - Chest X-ray datasets
+- **Open source community** - All the amazing tools used
+
+---
+
+<div align="center">
+
+
+Made with ❤️ for better healthcare
+
+[⬆ Back to Top](#-cliniq-ai-advanced-pneumonia-diagnostic-system)
+
+</div>
