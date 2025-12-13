@@ -1,6 +1,14 @@
-# Firebase Studio
+🩺 CliniQ AI: Advanced Pneumonia Diagnostic SystemCliniQ is a professional-grade medical web application designed for high-accuracy pneumonia detection from Chest X-ray images. Built on modern web standards and Morweb medical design guidelines, it bridges the gap between AI-driven analysis and actionable medical documentation [cite: Morweb Guidelines].🚀 Key FeaturesAI-Powered Diagnostics: Utilizes a lightweight Keras model for rapid classification of Chest X-rays with real-time confidence scoring [cite: app.py, backend.py].Multi-Page Clinical Dashboard: A responsive, multi-page structure designed for medical usability, featuring distinct sections for analysis, history, and reporting [cite: Morweb Guidelines].Professional Radiology Reports: Generates downloadable PDF diagnostic reports following hospital-standard templates, including automated severity interpretations based on confidence levels [cite: generate_report.py].Clinical AI Assistant: A local, keyword-matched chatbot prefed with comprehensive clinical data on symptoms, pediatric/elderly care, and recovery timelines [cite: medical_knowledge.py].Privacy-First Design: Implements "In-Memory" session history and patient ID masking (PID-0001) to ensure medical data security without requiring a persistent database [cite: app.py].🎨 Design & AccessibilityCliniQ follows the Morweb Medical Website Design Guidelines to ensure patient-centered care [cite: Morweb Guidelines]:Visual Hierarchy: Uses a professional medical palette (Primary: #1E40AF Deep Blue) and high-contrast typography for ease of use [cite: Morweb Guidelines].Branding & Authority: Featuring an opaque Lungs iconography to establish clinical trust [cite: Morweb Guidelines].Mobile-Friendly: Fully responsive multi-page layout that adapts to any device screen size [cite: Morweb Guidelines].🛠️ Tech StackFrontend: React / TypeScript / Node.js [cite: app.py].Backend: FastAPI (Python) hosted on Hugging Face Spaces [cite: backend.py].AI Engine: Keras/TensorFlow (MobileNetV2 architecture) [cite: backend.py].Reporting: Client-side PDF generation via @react-pdf/renderer [cite: generate_report.py].📂 Project StructureCliniQ/
+├── backend.py            # FastAPI backend logic & image preprocessing
+├── medical_knowledge.py  # Local clinical knowledge base for the chatbot
+├── generate_report.py    # Logic for professional PDF radiology reports
+├── app.tsx               # Primary React entry point & multi-page dashboard UI
+├── assets/               # Branding assets (Lungs logo & Stethoscope favicon)
+├── Dockerfile            # Container configuration for backend deployment
+└── requirements.txt      # Python dependencies
+⚙️ Installation & Setup1. Backend Setup (Hugging Face / Docker)The backend is designed to run in a containerized environment. Ensure your model keras_model_from_trained_data.h5 is in the root directory.docker build -t cliniq-backend .
+docker run -p 7860:7860 cliniq-backend
 
-This is a NextJS starter in Firebase Studio.
-
-To get started, take a look at src/app/page.tsx.
-"# CliniQ" 
+2. Frontend SetupInstall the necessary dependencies and start the application:npm install
+npm run dev
+📊 Diagnostic LogicInference: Normalizes images to (224, 224) and processes them through the AI engine [cite: backend.py].Reliability: Analysis results with ≥ 95% confidence are flagged as "Severe/Abnormal" with clinical evidence strings [cite: generate_report.py].🛡️ DisclaimerThis tool is intended for educational and auxiliary diagnostic support. All AI findings should be reviewed and verified by a certified radiologist.
