@@ -1,0 +1,34 @@
+{
+  "placeholderImages": [
+    {
+      "id": "xray1",
+      "description": "Chest X-ray showing potential pneumonia indicators.",
+      "imageUrl": "https://images.unsplash.com/photo-1648025487763-993aa9ee7ba9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHx4LXJheSUyMGNoZXN0fGVufDB8fHx8MTc2NTU2MjIzNHww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "x-ray chest"
+    },
+    {
+      "id": "xray2",
+      "description": "Normal chest X-ray.",
+      "imageUrl": "https://images.unsplash.com/photo-1631563019701-efcf403bc5fe?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHx4LXJheSUyMGNoZXN0fGVufDB8fHx8MTc2NTU2MjIzNHww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "x-ray chest"
+    },
+    {
+      "id": "xray3",
+      "description": "Chest X-ray with clear lungs.",
+      "imageUrl": "https://images.unsplash.com/photo-1729339983239-0129e46801de?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHx4LXJheSUyMGNoZXN0fGVufDB8fHx8MTc2NTU2MjIzNHww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "x-ray chest"
+    },
+    {
+      "id": "xray4",
+      "description": "Side view of a chest X-ray with some inflammation.",
+      "imageUrl": "https://images.unsplash.com/photo-1631651363531-fd29aec4cb5c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHx4LXJheSUyMGNoZXN0fGVufDB8fHx8MTc2NTU2MjIzNHww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "x-ray chest"
+    },
+    {
+      "id": "xray5",
+      "description": "Patient chest X-ray for routine checkup.",
+      "imageUrl": "https://images.unsplash.com/photo-1604160886553-3cfb13d20966?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8eC1yYXklMjBjaGVzdHxlbnwwfHx8fDE3NjU1NjIyMzR8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "x-ray chest"
+    }
+  ]
+}
