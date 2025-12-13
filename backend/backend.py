@@ -1,4 +1,4 @@
-rom fastapi import FastAPI, HTTPException
+from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel, field_validator
 from typing import Dict, Any, Union
 import numpy as np
